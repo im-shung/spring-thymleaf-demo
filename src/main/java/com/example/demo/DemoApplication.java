@@ -20,24 +20,25 @@ public class DemoApplication {
     public CommandLineRunner demo(BrowserRepository repository) {
         return (args) -> {
             // save a Browser
-            repository.save(new Browser("SaveTest", 11, 21.21D, 5));
+            //repository.save(new Browser("SaveTest", 11, 21.21D, 5));
 
             // fetch all customers
-            log.info("Browser found with findAll():");
-            log.info("-------------------------------");
-            for (Browser browser : repository.findAll()) {
-                log.info(browser.toString());
-            }
-            log.info("");
+//            log.info("Browser found with findAll():");
+//            log.info("-------------------------------");
+//            for (Browser browser : repository.findAll()) {
+//                log.info(browser.toString());
+//            }
+//            log.info("");
 
             // fetch an individual customer by ID
-            Browser browser = repository.findByName("Chrome");
-            log.info("Browser found with findByName(\"Chrome\"):");
-            log.info("--------------------------------");
-            log.info(browser.toString());
-            log.info("");
+//            Browser browser = repository.searchBrowser("Chrome");
+//            log.info("Browser found with findByName(\"Chrome\"):");
+//            log.info("--------------------------------");
+//            log.info(browser.toString());
+//            log.info("");
+//
+//            log.info("");
 
-            log.info("");
         };
     }
 }

@@ -1,20 +1,36 @@
 package com.example.demo;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.annotation.Nullable;
+import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 @Entity
+@NamedStoredProcedureQueries({
+    @NamedStoredProcedureQuery(
+        name = "Search_browser",
+        procedureName = "Search_browser",
+        resultClasses = {Browser.class},
+        parameters = { //저장 프로시저의 매개변수와 일치하는 매개변수 목록
+            @StoredProcedureParameter(mode = ParameterMode.IN, name = "NAME1", type = String.class)
+        }
+    )
+})
+@Table(schema = "demo", name = "browser")
 public class Browser {
 
     @Id
     private String name;
 
+    @Column(nullable = true)
     private int sessions;
 
+    @Column(nullable = true)
     private double bounceRate;
 
+    @Column(nullable = true)
     private int transactions;
 
     public Browser() {
